@@ -1,5 +1,5 @@
-import React, { ReactNode, useState } from 'react'
-import { AiOutlineUpload, AiOutlinePlus   } from "react-icons/ai";
+import React from 'react'
+import { AiOutlinePlus } from "react-icons/ai";
 
 export default function AddSectionBtn() {
     

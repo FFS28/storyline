@@ -1,5 +1,5 @@
-import React, { ReactNode, useState } from 'react'
-import { AiOutlineUpload, AiOutlinePlusSquare   } from "react-icons/ai";
+import React from 'react'
+import { AiOutlinePlusSquare } from "react-icons/ai";
 
 export default function ImageCard() {
     

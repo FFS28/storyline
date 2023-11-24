@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react'
+import React from 'react'
 import { AiOutlineUpload, AiOutlineMore } from "react-icons/ai";
 
 export default function Titlebar({ title, description }: { title: string, description: string }) {

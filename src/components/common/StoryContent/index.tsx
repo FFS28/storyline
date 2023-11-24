@@ -1,5 +1,5 @@
-import React, { ReactNode, useState } from 'react'
-import { AiOutlineUpload, AiOutlineEllipsis  } from "react-icons/ai";
+import React from 'react'
+import { AiOutlineEllipsis } from "react-icons/ai";
 import ImageCard from '../ImageCard';
 
 export default function StoryContent({ title }: { title: string }) {

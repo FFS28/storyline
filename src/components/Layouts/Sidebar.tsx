@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { AiFillCaretRight, AiOutlinePlus, AiOutlineBulb, AiOutlineSetting  } from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineBulb, AiOutlineSetting  } from "react-icons/ai";
 
 
 import logo from '@/resources/Logo.svg'
