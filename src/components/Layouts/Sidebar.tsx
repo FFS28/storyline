@@ -1,14 +1,18 @@
 "use client"
 
-import React from 'react'
+import React, { useContext } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { AiOutlinePlus, AiOutlineBulb, AiOutlineSetting  } from "react-icons/ai";
 
-
+import { AppContext } from '@/contexts';
 import logo from '@/resources/Logo.svg'
+import { StoryBook } from '@/types';
+
 
 export default function Sidebar() {
+    const {appState, setAppState} = useContext(AppContext)
+    
     const pathname  = usePathname();
 
     // Define our base class
@@ -24,9 +28,13 @@ export default function Sidebar() {
                 href={route}
                 className={`flex gap-1 [&>*]:my-auto text-md py-3 ${colorClass}`}
             >
-                <div className="text-xl flex [&>*]:mx-auto w-[30px] text-[#5D5FD0]">
-                    {icon ? icon : <label className='before:content-["\2022"]' />}
-                </div>
+                {
+                    icon ? 
+                    <div className="text-xl flex [&>*]:mx-auto w-[30px]">{icon}</div> : 
+                    <div className="text-xl flex [&>*]:mx-auto w-[30px] text-[#5D5FD0]">
+                        <label className='before:content-["\2022"]' />
+                    </div>
+                }
                 <div>{name}</div>
             </Link>
         )
@@ -51,27 +59,32 @@ export default function Sidebar() {
                         </label>
                         
                     </div>
-                    <div className="flex flex-col">
-                        <MenuItem
-                            name="Untitle"
-                            route="/story1"
-                            icon={null}
-                        />
-                    </div>
+                    {appState.totalStoryBookList.map((el: StoryBook, index: number) => {
+                        return (
+                            <div className="flex flex-col" key={index}>
+                                <MenuItem
+                                    name={el.title}
+                                    route={`/${el.id}`}
+                                    icon={null}
+                                />
+                            </div>
+                        )
+                    })}
+                    
                 </div>
                 <div className='w-full py-4 border-t-2 align-bottom border-[#DFE4EA]'>
                     <div className="flex flex-col">
                         <MenuItem
-                            name="Story 1"
-                            route="/story1"
+                            name="Inspirations"
+                            route="/inspirations"
                             icon={<AiOutlineBulb />}
                             
                         />
                     </div>
                     <div className="flex flex-col">
                         <MenuItem
-                            name="Story 1"
-                            route="/story1"
+                            name="Settings"
+                            route="/settings"
                             icon={<AiOutlineSetting   />}
                         />
                     </div>
